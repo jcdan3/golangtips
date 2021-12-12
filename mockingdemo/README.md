@@ -1,0 +1,2 @@
+#Mockery
+mockery --all
