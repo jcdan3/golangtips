@@ -9,9 +9,9 @@ func TestFileSystem_PrintFileContent(t *testing.T) {
 	type fields struct {
 		conn FileConnector
 	}
-
+	const fileToRead ="mockFileToread.txt"
 	connectorMock := mocks.FileConnector{}
-	connectorMock.On("ReadFromFile", "/home/jc/go/src/Playground/mockingdemo/mockFileToread.txt").Return([]byte("salut"),nil)
+	connectorMock.On("ReadFromFile", fileToRead).Return([]byte("hello"),nil)
 
 	type args struct {
 		fileName string
@@ -25,7 +25,7 @@ func TestFileSystem_PrintFileContent(t *testing.T) {
 		{
 			"test",
 			fields{&connectorMock},
-			args{fileName: "/home/jc/go/src/Playground/mockingdemo/mockFileToread.txt"},
+			args{fileName: fileToRead},
 			false,
 		},
 
